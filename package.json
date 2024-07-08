@@ -1,0 +1,33 @@
+{
+  "name": "@bit-js/ncrypt",
+  "version": "0.0.2",
+  "author": "aquapi",
+  "license": "MIT",
+  "keywords": [
+    "crypto",
+    "fast",
+    "secure"
+  ],
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./*": "./lib/*.js"
+  },
+  "scripts": {
+    "build:test": "bun scripts/build.ts && bun test",
+    "publish": "bun build:test && bun scripts/publish.ts",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "latest",
+    "eslint": "latest",
+    "typescript-eslint": "latest",
+    "eslint-plugin-jsdoc": "latest",
+    "@types/bun": "latest",
+    "mitata": "latest",
+    "typescript": "latest"
+  }
+}
