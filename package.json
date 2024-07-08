@@ -1,6 +1,6 @@
 {
   "name": "@bit-js/ncrypt",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "aquapi",
   "license": "MIT",
   "keywords": [
@@ -9,15 +9,11 @@
     "secure"
   ],
   "type": "module",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "exports": {
-    ".": "./lib/index.js",
-    "./*": "./lib/*.js"
-  },
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "build:test": "bun scripts/build.ts && bun test",
-    "publish": "bun build:test && bun scripts/publish.ts",
+    "build:publish": "bun build:test && bun scripts/publish.ts",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix"
   },

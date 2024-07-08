@@ -1,12 +1,8 @@
-import { write, file, $ } from 'bun';
-import { join } from 'path';
-
-const writeToLib = (path: string) => write(join('./lib', path), file(path));
+import { cpToLib, exec } from './utils';
 
 // Write required files
 await Promise.all([
-  writeToLib('README.md'),
-  writeToLib('package.json')
-]);
+  './README.md', './package.json'
+].map(cpToLib));
 
-await $`cd lib && npm publish --otp=${prompt('Enter NPM one-time password or 2FA code:')} --access=public`.catch((err) => process.stderr.write(err.stderr));
+await exec`cd lib && npm publish --otp=${prompt('Enter NPM one-time password or 2FA code:')} --access=public`;

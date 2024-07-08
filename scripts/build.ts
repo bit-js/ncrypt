@@ -1,9 +1,12 @@
+/// <reference types='bun-types' />
 import { existsSync, rmSync } from 'fs';
 import pkg from '../package.json';
-import { $, Glob } from 'bun';
+import { Glob } from 'bun';
+import { exec } from './utils';
+
+const outdir = './lib';
 
 // Generating types
-const outdir = './lib';
 if (existsSync(outdir)) rmSync(outdir, { recursive: true });
 
 // Build source files
@@ -12,9 +15,11 @@ Bun.build({
     target: 'bun',
     outdir,
     entrypoints: [...new Glob('src/*.ts').scanSync('.')],
-    minify: { whitespace: true },
+    minify: {
+        whitespace: true
+    },
     // @ts-ignore
     external: Object.keys(pkg.dependencies ?? {})
 });
 
-await $`bun x tsc`;
+await exec`bun x tsc`;
