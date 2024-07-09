@@ -27,6 +27,6 @@ export default class CookieSigner {
     if (dotIdx === -1) return null;
 
     const tentativeValue = value.substring(0, dotIdx);
-    return this.signer.verify(tentativeValue, value.substring(dotIdx)) ? tentativeValue : null;
+    return this.signer.verify(tentativeValue, value.substring(dotIdx + 1)) ? tentativeValue : null;
   }
 }
