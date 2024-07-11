@@ -35,16 +35,6 @@ export default class KeyGrip implements Signer {
   }
 
   /**
-   * Rotate a new key in and an old key out
-   * @param key - The new key to be rotated in
-   */
-  public rotate(key: Key): void {
-    const { keys } = this;
-    keys.unshift(key);
-    keys.pop();
-  }
-
-  /**
    * Check whether the data and the digest matched
    * @param data - The input data
    * @param digest - The input digest

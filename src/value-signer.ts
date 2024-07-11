@@ -1,6 +1,9 @@
 import type { Signer } from './utils/types';
 
-export default class CookieSigner {
+/**
+ * Sign a value with a hash to verify later (can be used for simple cookie setups)
+ */
+export default class ValueSigner {
   /**
    * The current signer
    */

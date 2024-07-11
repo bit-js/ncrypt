@@ -1,7 +1,7 @@
 import type { Key, Signer } from './utils/types';
 import { createHmac, timingSafeEqual, type BinaryToTextEncoding, type BinaryLike } from 'node:crypto';
 
-export default class KeySigner implements Signer {
+export default class BasicSigner implements Signer {
   /**
    * The current key
    */
